@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>The Roborecorder</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+
+<head>
+  
+</head>
+<script src=""></script>
+<body>
+
+
+
+  
+<div class="">
+ <h1>The Roborecorder</h1>
+ <h4>Add MIDI Files Here.</h4>
+ 
+  <form method='POST' enctype='multipart/form-data'>
+  {{form.hidden_tag()}}
+  {{form.file()}}
+  {{form.submit()}} 
+</form>
+  
+  <br>
+   <form action="{{ url_for('home') }}">
+ <button class="button button1">Go Back To Home Page</button>
+   </form>
+</div>
+
+    
+ 
+
+</body>
+</html>

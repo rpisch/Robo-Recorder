@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>The Roborecorder</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+
+<head>
+  
+</head>
+<script src=""></script>
+<body>
+
+
+
+  
+<div class="">
+ <h1>The Roborecorder</h1>
+ <h4>Play Songs Here.</h4>
+
+
+  <!--/action_page.php --->
+
+  
+<form action="/playing_song" method="GET">
+
+<label for="song-select">Choose a song:</label>
+<select name="song" required>
+  <!-- ADD OPTIONS FOR EVERY SONG HERE --->
+    <option>---------------------------------------</option>
+    <option value="1">Hot Cross Buns</option>
+    <option value="2">Gently Sleep</option>
+    <option value="3">Merrily We Roll Along</option>
+    <option value="4">It's Raining</option>
+    <option value="5">Old MacDonald Had A Farm</option>
+    <option value="6">When The Saints Go Marching In</option>
+    <option value="7">Twinkle Twinkle Little Star</option>
+    <option value="8">Ode To Joy</option>
+    <option value="9">Through the Fire and the Flames</option>
+    <option value="10">French Tune</option>
+    <option value="11">Air Test</option>
+    <option value="12">For Finger Control</option>
+    <option value="13">Jingle Bells</option>
+    <option value="14">F#</option>
+    <option value="15">D and F#</option>
+    <option value="16">G and F#</option>
+    <option value="17">Long Tones</option>
+    <option value="18">Jolly Old St. Nick</option>
+    <option value="19">The Saints</option>
+    <option value="20">Good King Wenceslas</option>
+    <option value="21">Fingering Chart</option>
+</select>
+  <br>
+
+  
+  <label for="vol">Bpm:</label>
+  <input type="range" id="bpm" value="bpm" name="bpm" min="60" max="200" oninput="this.nextElementSibling.value = this.value">
+  <output>120</output>
+  <br>
+  
+  <input type="submit" value="Play Song" onclick="getData()">  
+</form>
+  
+  <br>
+   <form action="{{ url_for('home') }}">
+ <button class="button button1">Go Back To Home Page</button>
+   </form>
+ 
+  
+</div>
+
+<script>
+submitForms = function(){
+    document.getElementById("song").submit();
+    document.getElementById("bpm").submit();
+}
+
+
+function getData()
+{
+    //getting the values
+    var new_song = document.getElementById("song").value;
+    var new_bpm = document.getElementById("bpm").value; 
+    localStorage.setItem("song", new_song);
+    localStorage.setItem("bpm", new_bpm);
+}
+</script>
+  
+</body>
+</html>
